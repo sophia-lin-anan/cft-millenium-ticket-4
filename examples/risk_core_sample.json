@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "run_id": "demo-2026-11-15",
+  "as_of": "2026-11-15T12:00:00-05:00",
+  "pods": [
+    {
+      "pod_id": "Pod A",
+      "evaluation_window": "YTD",
+      "performance": {"pnl_percent": -5.2, "benchmark_percent": 1.0},
+      "decision_skill": {
+        "aggregate_percentile": 72,
+        "components": {"stock_selection": 78, "entry_timing": 64, "exit_timing": 69, "sizing": 76}
+      },
+      "risk_metrics": {
+        "var": {"value_percent": -2.1, "window": "20d", "calculation_version": "var-1.2"},
+        "expected_shortfall": {"value_percent": -3.4, "window": "20d", "calculation_version": "es-1.2"},
+        "drawdown": {"value_percent": -8.6, "window": "YTD", "calculation_version": "dd-1.0"},
+        "time_underwater": {"days": 31, "window": "YTD", "calculation_version": "tuw-1.0"},
+        "hidden_tail_risk": {"score": 0.18, "gaming_risk": "none", "calculation_version": "tail-0.4"}
+      },
+      "data_quality": {"missing_metrics": [], "warnings": []},
+      "provenance": {"risk_core_version": "0.1.0", "snapshot_hash": "demo-a"}
+    },
+    {
+      "pod_id": "Pod B",
+      "evaluation_window": "YTD",
+      "performance": {"pnl_percent": -8.0, "benchmark_percent": 1.0},
+      "decision_skill": {
+        "aggregate_percentile": 39,
+        "components": {"stock_selection": 32, "entry_timing": 45, "exit_timing": 28, "sizing": 50}
+      },
+      "risk_metrics": {
+        "var": {"value_percent": -3.2, "window": "20d", "calculation_version": "var-1.2"},
+        "expected_shortfall": {"value_percent": -5.1, "window": "20d", "calculation_version": "es-1.2"},
+        "drawdown": {"value_percent": -12.4, "window": "YTD", "calculation_version": "dd-1.0"},
+        "time_underwater": {"days": 67, "window": "YTD", "calculation_version": "tuw-1.0"},
+        "hidden_tail_risk": {"score": 0.63, "gaming_risk": "possible", "calculation_version": "tail-0.4"}
+      },
+      "data_quality": {"missing_metrics": [], "warnings": []},
+      "provenance": {"risk_core_version": "0.1.0", "snapshot_hash": "demo-b"}
+    },
+    {
+      "pod_id": "Pod C",
+      "evaluation_window": "YTD",
+      "performance": {"pnl_percent": 7.4, "benchmark_percent": 1.0},
+      "decision_skill": {
+        "aggregate_percentile": 44,
+        "components": {"stock_selection": 41, "entry_timing": 47, "exit_timing": 43, "sizing": 46}
+      },
+      "risk_metrics": {
+        "var": {"value_percent": -1.8, "window": "20d", "calculation_version": "var-1.2"},
+        "expected_shortfall": {"value_percent": -2.7, "window": "20d", "calculation_version": "es-1.2"},
+        "drawdown": {"value_percent": -4.2, "window": "YTD", "calculation_version": "dd-1.0"},
+        "time_underwater": {"days": 12, "window": "YTD", "calculation_version": "tuw-1.0"},
+        "hidden_tail_risk": {"score": 0.24, "gaming_risk": "none", "calculation_version": "tail-0.4"}
+      },
+      "data_quality": {"missing_metrics": [], "warnings": []},
+      "provenance": {"risk_core_version": "0.1.0", "snapshot_hash": "demo-c"}
+    },
+    {
+      "pod_id": "Pod D",
+      "evaluation_window": "YTD",
+      "performance": {"pnl_percent": 9.1, "benchmark_percent": 1.0},
+      "decision_skill": {
+        "aggregate_percentile": 81,
+        "components": {"stock_selection": 83, "entry_timing": 74, "exit_timing": 79, "sizing": 86}
+      },
+      "risk_metrics": {
+        "var": {"value_percent": -1.5, "window": "20d", "calculation_version": "var-1.2"},
+        "expected_shortfall": {"value_percent": -2.3, "window": "20d", "calculation_version": "es-1.2"},
+        "drawdown": {"value_percent": -3.7, "window": "YTD", "calculation_version": "dd-1.0"},
+        "time_underwater": {"days": 8, "window": "YTD", "calculation_version": "tuw-1.0"},
+        "hidden_tail_risk": {"score": 0.12, "gaming_risk": "none", "calculation_version": "tail-0.4"}
+      },
+      "data_quality": {"missing_metrics": [], "warnings": []},
+      "provenance": {"risk_core_version": "0.1.0", "snapshot_hash": "demo-d"}
+    }
+  ]
+}

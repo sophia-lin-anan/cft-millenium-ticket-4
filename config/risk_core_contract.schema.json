@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://millenium.local/schemas/risk-core-snapshot-1.0.json",
+  "title": "Risk Core Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "as_of", "pods"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "as_of": {"type": "string", "format": "date-time"},
+    "pods": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/pod"}
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["value_percent", "window", "calculation_version"],
+      "properties": {
+        "value_percent": {"type": "number"},
+        "window": {"type": "string"},
+        "calculation_version": {"type": "string"}
+      }
+    },
+    "pod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pod_id",
+        "evaluation_window",
+        "performance",
+        "decision_skill",
+        "risk_metrics",
+        "data_quality",
+        "provenance"
+      ],
+      "properties": {
+        "pod_id": {"type": "string", "minLength": 1},
+        "evaluation_window": {"type": "string"},
+        "performance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pnl_percent", "benchmark_percent"],
+          "properties": {
+            "pnl_percent": {"type": "number"},
+            "benchmark_percent": {"type": "number"}
+          }
+        },
+        "decision_skill": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["aggregate_percentile", "components"],
+          "properties": {
+            "aggregate_percentile": {"type": "number", "minimum": 0, "maximum": 100},
+            "components": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {"type": "number", "minimum": 0, "maximum": 100}
+            }
+          }
+        },
+        "risk_metrics": {
+          "type": "object",
+          "additionalProperties": {"type": "object"}
+        },
+        "data_quality": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["missing_metrics", "warnings"],
+          "properties": {
+            "missing_metrics": {"type": "array", "items": {"type": "string"}},
+            "warnings": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["risk_core_version"],
+          "properties": {"risk_core_version": {"type": "string"}}
+        }
+      }
+    }
+  }
+}
